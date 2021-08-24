@@ -29,7 +29,7 @@ app.use('/aiProject', aiProjectsRoutes)
 
 
 app.use('/', (req,res,next)=>{
-    res.status(200).json('Hello Admin')
+    res.status(200).json('Hello Admin Diego')
 })
 // FUNCTINO TO COONECT TO THE SERVER
 const connect = async () =>{
