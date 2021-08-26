@@ -8,7 +8,7 @@ const path = require('path')
 exports.getDevProjects = async (req,res,next) => {
     try {
         devProject = await DevProject.find().sort({date: -1})
-        return res.status(200).json({message:'successfully',project: devProject})
+        res.status(200).json({message:'successfully',project: devProject})
 
     } catch (error) {
         console.log(error)
