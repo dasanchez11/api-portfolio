@@ -7,12 +7,15 @@ const path = require('path')
 // GET Development Projects
 exports.getDevProjects = async (req,res,next) => {
     try {
-        console.log('endpoint hit')
         devProject = await DevProject.find().sort({date: -1})
         return res.status(200).json({message:'successfully',project: devProject})
 
     } catch (error) {
         console.log(error)
+        error = new Error()
+        error.status(400)
+        error.message('fail to load source')
+        throw error
     }
 }
 
