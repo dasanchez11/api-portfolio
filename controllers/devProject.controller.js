@@ -7,6 +7,7 @@ const path = require('path')
 // GET Development Projects
 exports.getDevProjects = async (req,res,next) => {
     try {
+       
         devProject = await DevProject.find().sort({date: -1})
         res.status(200).json({message:'successfully',project: devProject})
 
