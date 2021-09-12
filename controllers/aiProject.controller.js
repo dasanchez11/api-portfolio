@@ -26,13 +26,13 @@ exports.getAiProjects = async (req,res,next) =>{
 exports.getAiProject = async (req,res,next) => {
     try {
         const projectId = req.params.aiProjectId
-        const project = await Project.findById(projectId)
+        const project = await Project.find({dir:projectId})
         if(!project){ 
             const error = new Error('Project Not Fount')
             error.statusCode = 404
             throw error
         }
-        return res.status(200).json({message:'Project found', project:project})
+        return res.status(200).json({message:'Project found', project:project[0]})
  
     } catch (error) {
         console.log(error)
@@ -70,7 +70,8 @@ exports.postAiProject = async (req,res,next) => {
                         'Electronic check',
                         29.85,
                         29.85]
-        metric = 'accuracy: 83%'
+        metric = 'accuracy: 83%',
+        tag='parameters'
 
         const project = new Project({
             dir : dir,
@@ -80,7 +81,8 @@ exports.postAiProject = async (req,res,next) => {
             attributes : attributes,
             attributes_info:attributes_info,
             mean_values : mean_values,
-            metric : metric
+            metric : metric,
+            tag:tag
         })
 
         

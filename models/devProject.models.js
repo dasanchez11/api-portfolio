@@ -33,6 +33,10 @@ const devProject = new Schema({
     machineLearningId: {
         type: String,
         required:false
+    },
+    date:{
+        type : Date, 
+        default: Date.now
     }
 })
 
