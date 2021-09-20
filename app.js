@@ -27,6 +27,9 @@ app.use('/devProject', devProjectRoutes)
 const aiProjectsRoutes = require('./routes/aiProject.route')
 app.use('/aiProject', aiProjectsRoutes)
 
+const emailRoutes = require('./routes/email.route')
+app.use('/contact', emailRoutes)
+
 
 
 app.use('/', (req,res,next)=>{
