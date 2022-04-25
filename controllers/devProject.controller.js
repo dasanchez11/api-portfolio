@@ -8,12 +8,11 @@ const aiProject = require('../models/aiProject.model')
 // GET Development Projects
 exports.getDevProjects = async (req,res,next) => {
     try {
-       
         devProject = await DevProject.find().sort({date: -1})
         res.status(200).json({message:'successfully',project: devProject})
 
     } catch (error) {
-        console.log(error)
+        console.log("error",error)
         error = new Error()
         error.status(400)
         error.message('fail to load source')

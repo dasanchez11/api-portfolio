@@ -12,7 +12,6 @@ const transporter = nodemailer.createTransport(sendGridTransport({
 
 exports.sendEmail = async (req,res,next) => {
    const {email, message,name} = JSON.parse(req.body.data)
-   
     try {
         transporter.sendMail(
             {
