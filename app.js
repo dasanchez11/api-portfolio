@@ -15,7 +15,7 @@ app.use(cors());
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://zealous-tesla-e014fe.netlify.app/"
+    "https://zealous-tesla-e014fe.netlify.app"
   );
 
   res.setHeader(
